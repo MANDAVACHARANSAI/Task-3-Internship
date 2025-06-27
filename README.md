@@ -18,14 +18,12 @@ This project is part of my ongoing internship, focusing on **JavaScript interact
 - JavaScript (ES6)  
 - Canvas Confetti  
 - Public APIs (`icanhazdadjoke.com`)
-- 
+  
 📂 Project Structure
-📁 Task-3
-├── index.html
-├── quiz.css
-├── quiz.js
-├── 1background.png.jpg   
-├── README.md             
+📁 your-repo-name/
+├── 📄 index.html
+├── 📄 README.md
+└── 📁 (optional: assets/, css/, js/)
 
 ## 🧠 Learnings
 
