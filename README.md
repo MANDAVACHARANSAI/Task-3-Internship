@@ -22,8 +22,9 @@ This project is part of my ongoing internship, focusing on **JavaScript interact
 📂 Project Structure
 📁 your-repo-name/
 ├── 📄 index.html
-├── 📄 README.md
-└── 📁 (optional: assets/, css/, js/)
+├── 📄 style.css
+├── 📄 script.js
+└── 📄 README.md
 
 ## 🧠 Learnings
 
