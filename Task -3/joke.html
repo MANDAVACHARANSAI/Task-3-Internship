@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Need a Laugh?</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f8b195, #f67280);
+      transition: background 1s ease;
+    }
+    .joke-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 30px 40px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+    }
+    .joke-title {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .joke-text {
+      background: #eee;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+    .joke-btn {
+      background-color: #e74c3c;
+      color: white;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+    .joke-btn:hover {
+      background-color: #c0392b;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="joke-card">
+    <div class="joke-title">😂 Need a Laugh?</div>
+    <div id="joke" class="joke-text">Loading joke...</div>
+    <button class="joke-btn" onclick="fetchJoke()">Another One 🫣</button>
+  </div>
+
+  <script>
+    const jokeEl = document.getElementById('joke');
+
+    const gradients = [
+      'linear-gradient(to right, #f8b195, #f67280)',
+      'linear-gradient(to right, #ffecd2, #fcb69f)',
+      'linear-gradient(to right, #a1c4fd, #c2e9fb)',
+      'linear-gradient(to right, #ff9a9e, #fad0c4)',
+      'linear-gradient(to right, #ffdde1, #ee9ca7)',
+      'linear-gradient(to right, #84fab0, #8fd3f4)',
+      'linear-gradient(to right, #c6ffdd, #fbd786, #f7797d)',
+      'linear-gradient(to right, #a18cd1, #fbc2eb)'
+    ];
+
+    async function fetchJoke() {
+      jokeEl.textContent = 'Fetching joke...';
+      try {
+        const res = await fetch('https://icanhazdadjoke.com/', {
+          headers: { 'Accept': 'application/json' }
+        });
+        const data = await res.json();
+        jokeEl.textContent = data.joke;
+
+        // Pick a new random background gradient
+        const randomGradient = gradients[Math.floor(Math.random() * gradients.length)];
+        document.body.style.background = randomGradient;
+
+      } catch (err) {
+        jokeEl.textContent = "Oops! Couldn't fetch a joke.";
+      }
+    }
+
+    fetchJoke();
+  </script>
+
+</body>
+</html>
